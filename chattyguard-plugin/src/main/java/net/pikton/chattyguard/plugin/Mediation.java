@@ -25,14 +25,14 @@ public class Mediation {
 
 		try {						
 			main.start();			
-	        LOG.warn("M2M plugin has been started.");   
+	        LOG.warn("Chattyguard module has been started.");
 			synchronized(lock){
 				lock.wait();
 			}
 		} catch (Exception e) {
-			 LOG.error("M2M plugin can't be started.");        
+			 LOG.error("Chattyguard module can't be started.");
 		}finally{
-	         LOG.warn("M2M plugin has been stopped.");  
+	         LOG.warn("Chattyguard module has been stopped.");
 		}  	
     }
             

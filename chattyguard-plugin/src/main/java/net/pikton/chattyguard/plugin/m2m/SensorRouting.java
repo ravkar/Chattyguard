@@ -30,7 +30,7 @@ public class SensorRouting extends RouteBuilder {
         csv.setStrategy(strategy);
                 
                  
-        from("file:{{file.input.dir}}&sendEmptyMessageWhenIdle=false")
+        from("file:{{file.input.dir}}&sendEmptyMessageWhenIdle=true")
         	.routeId("sensorPreprocessInput")
 	      		.log(LoggingLevel.INFO, "net.pikton","Preprocess sensor input")
 	        	.unmarshal(csv)
