@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:camel="http://camel.apache.org/schema/spring"
+       xsi:schemaLocation="
+          http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+
+    <bean id="properties" class="org.apache.camel.component.properties.PropertiesComponent">
+        <property name="location" value="file:chattyguard.properties"/>
+    </bean>
+
+    <bean id="cfg1" class="net.pikton.chattyguard.plugin.Configuration">
+        <constructor-arg value="file:chattyguard.properties" />
+    </bean>
+
+    <bean id="cfg2" class="net.pikton.chattyguard.plugin.Configuration">
+        <constructor-arg value="file:chattyguard.properties" />
+    </bean>
+
+    <bean id="cfg3" class="net.pikton.chattyguard.plugin.Configuration">
+        <constructor-arg value="file:chattyguard.properties" />
+    </bean>
+
+    <bean id="sensorFilesProcessStrategy" class="net.pikton.chattyguard.plugin.m2m.SensorFilesProcessStrategy"/>
+
+    <bean id="callProcessor"      class="net.pikton.chattyguard.plugin.m2m.CallProcessor">
+        <constructor-arg ref="cfg1"/>
+    </bean>
+
+    <bean id="sensorMonitoring"   class="net.pikton.chattyguard.plugin.m2m.SensorMonitoring">
+        <constructor-arg ref="cfg2"/>
+    </bean>
+
+    <bean id="cleaningFilesStrategy" class="net.pikton.chattyguard.plugin.m2m.CleaningFilesStrategy">
+        <constructor-arg ref="cfg3"/>
+    </bean>
+
+    <bean id="sensorPreprocessor" class="net.pikton.chattyguard.plugin.m2m.SensorPreprocessor"/>
+
+    <bean id="sensorRoutes"       class="net.pikton.chattyguard.plugin.m2m.SensorRouting"/>
+    <bean id="alarmRoutes"     	  class="net.pikton.chattyguard.plugin.m2m.AlarmRouting"/>
+
+    <bean id="cleaningServiceRoutes" class="net.pikton.chattyguard.plugin.m2m.CleaningServiceRouting"/>
+
+
+
+    <camelContext id="mediation" xmlns="http://camel.apache.org/schema/spring">
+        <jmxAgent id="agent007" createConnector="true"/>
+        <routeBuilder ref="sensorRoutes"/>
+        <routeBuilder ref="alarmRoutes"/>
+        <routeBuilder ref="cleaningServiceRoutes"/>
+    </camelContext>
+
+</beans>

@@ -1,0 +1,221 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<parent>
+		<groupId>net.pikton</groupId>
+		<artifactId>m2m-plugins</artifactId>
+		<version>1.0.1</version>
+	</parent>
+
+	<groupId>net.pikton</groupId>
+	<artifactId>chattyguard-plugin</artifactId>
+	<packaging>jar</packaging>
+	<version>1.0.0</version>
+	<name>chattyguard-plugin</name>
+	<url>http://maven.apache.org</url>
+
+	<dependencies>		
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-spring</artifactId>
+        </dependency>
+        
+		<dependency>
+		  <groupId>org.apache.camel</groupId>
+		  <artifactId>camel-csv</artifactId>
+		</dependency>        
+		
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-ftp</artifactId>
+		</dependency>	
+		
+		<dependency>
+		  <groupId>org.apache.camel</groupId>
+		  <artifactId>camel-exec</artifactId>
+		</dependency>	
+		
+	    <dependency>
+	       <groupId>org.apache.camel</groupId>
+	       <artifactId>camel-quartz2</artifactId>
+	    </dependency>		
+	    
+	    <dependency>
+	       <groupId>org.apache.camel</groupId>
+	       <artifactId>camel-mina</artifactId>
+	    </dependency>		    
+
+            <dependency>
+               <groupId>org.apache.mina</groupId>
+               <artifactId>mina-core</artifactId>
+            </dependency>
+		
+		
+		<dependency>
+		    <groupId>org.apache.camel</groupId>
+		    <artifactId>camel-jsch</artifactId>		
+		</dependency>	
+					     		             
+	    <dependency>
+	      <groupId>log4j</groupId>
+	      <artifactId>log4j</artifactId>
+	    </dependency>
+	    
+	    <dependency>
+	      <groupId>org.slf4j</groupId>
+	      <artifactId>slf4j-log4j12</artifactId>
+	    </dependency>
+        
+        <!-- testing -->
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>           
+            <scope>test</scope>
+        </dependency>
+
+
+    </dependencies>
+
+    <build>
+        <plugins>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.1</version>
+          <configuration>
+            <source>1.7</source>
+            <target>1.7</target>
+            <maxmem>256M</maxmem>
+            <showDeprecation>true</showDeprecation>
+          </configuration>
+        </plugin>
+		
+
+            <!-- to allow to run mvn camel:run -->
+            <plugin>
+                <groupId>org.apache.camel</groupId>
+                <artifactId>camel-maven-plugin</artifactId>
+            </plugin>
+
+            <!-- Allows the example to be run via 'mvn compile exec:java' -->
+            <!-- notice how we have define the mainClass -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>net.pikton.chattyguard.plugin.Mediation</mainClass>
+                    <includePluginDependencies>false</includePluginDependencies>
+                </configuration>
+            </plugin>
+
+            <!-- to package the jar with a MANIFEST.MF with classpath and MainClass entry -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>net.pikton.chattyguard.plugin.Mediation</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+            
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>2.1</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+						<configuration>
+							<artifactSet>
+								<excludes>
+					                   	<resource>data</resource>
+					                    <resource>chattyguard.properties</resource>
+								</excludes>
+							</artifactSet>
+							<transformers>
+								<transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+									<mainClass>net.pikton.chattyguard.plugin.Mediation</mainClass>
+								</transformer>
+				                <transformer implementation="org.apache.maven.plugins.shade.resource.DontIncludeResourceTransformer">
+				                   <resources>	
+				                   		<resource>.sh</resource>		                   
+					                	<resource>.log</resource>
+					                	<resource>pom.xml</resource>
+					                	<resource>pom.properties</resource>					                	
+					                    <resource>chattyguard.properties</resource>
+					               		<resource>mediation.xml</resource>  
+				                   </resources> 
+				                </transformer>	
+				                <transformer implementation="org.apache.maven.plugins.shade.resource.IncludeResourceTransformer">
+			                        <resource>mediation.xml</resource>			                   
+				               		<file>src/main/cfg/mediation.xml</file>  
+				                </transformer>	
+				                <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+				                  <resource>META-INF/spring.handlers</resource>
+				                </transformer>
+				                <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+				                  <resource>META-INF/spring.schemas</resource>
+				                </transformer>		
+				                <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+				                  <resource>.xsd</resource>
+				                </transformer>	
+				                <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+				                  <resource>.quartz.properties</resource>
+				                </transformer>					                				                		                
+				                				                							
+							</transformers>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>     
+			
+		      <plugin>
+		        <artifactId>maven-assembly-plugin</artifactId>
+		        <version>2.4</version>
+		        <configuration>        
+		          <descriptors>
+		            <descriptor>src/main/assembly/mediation-bin.xml</descriptor>
+		          </descriptors>                    
+		          <archive>
+		            <manifest>
+		              <mainClass>net.pikton.chattyguard.plugin.Mediation</mainClass>
+		            </manifest>
+		          </archive>          
+		        </configuration>
+		        <executions>
+		          <execution>
+		            <id>make-assembly</id>   
+		            <phase>package</phase>  
+		            <goals>
+		              <goal>single</goal>  
+		            </goals>
+		          </execution>
+		        </executions>        
+		      </plugin> 			
+			       
+        </plugins>
+    </build>
+
+</project>
+
+
