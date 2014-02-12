@@ -1,7 +1,7 @@
 Chattyguard
 ===========
 
-Chattyguard – Smart Thermometer with VoIP interface
+Chattyguard – Smart Thermometer with VoIP interface on Raspberry Pi
 
 Prerequisites to assemble functioning device:
 - Hardware: Raspberry Pi ARM board or similar
