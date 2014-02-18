@@ -1,4 +1,4 @@
-package net.pikton.chattyguard.plugin.m2m;
+package org.chattyguard.plugin.m2m;
 
 import org.apache.camel.builder.RouteBuilder;
 import org.slf4j.Logger;

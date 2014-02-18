@@ -28,7 +28,7 @@
         </layout>
     </appender>  
     
-    <category name="net.pikton" additivity="true">
+    <category name="org.chattyguard" additivity="true">
         <priority value ="INFO" />
         <appender-ref ref="chattyguard-stdout"/>
         <appender-ref ref="chattyguard-trace"/>

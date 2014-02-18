@@ -1,4 +1,4 @@
-package net.pikton.chattyguard.plugin;
+package org.chattyguard.plugin;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -22,7 +22,7 @@ import org.springframework.core.io.Resource;
  *
  */
 public class Configuration extends Properties{	
-	private static final long serialVersionUID = -8877226667474521806L;
+	private static final long serialVersionUID = -8877226660524521806L;
 	
 	protected static final Logger LOG = LoggerFactory.getLogger(Configuration.class);	
 	    

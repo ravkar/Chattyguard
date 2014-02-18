@@ -11,38 +11,38 @@
         <property name="location" value="file:chattyguard.properties"/>
     </bean>
 
-    <bean id="cfg1" class="net.pikton.chattyguard.plugin.Configuration">
+    <bean id="cfg1" class="org.chattyguard.plugin.Configuration">
         <constructor-arg value="file:chattyguard.properties" />
     </bean>
 
-    <bean id="cfg2" class="net.pikton.chattyguard.plugin.Configuration">
+    <bean id="cfg2" class="org.chattyguard.plugin.Configuration">
         <constructor-arg value="file:chattyguard.properties" />
     </bean>
 
-    <bean id="cfg3" class="net.pikton.chattyguard.plugin.Configuration">
+    <bean id="cfg3" class="org.chattyguard.plugin.Configuration">
         <constructor-arg value="file:chattyguard.properties" />
     </bean>
 
-    <bean id="sensorFilesProcessStrategy" class="net.pikton.chattyguard.plugin.m2m.SensorFilesProcessStrategy"/>
+    <bean id="sensorFilesProcessStrategy" class="org.chattyguard.plugin.m2m.SensorFilesProcessStrategy"/>
 
-    <bean id="callProcessor"      class="net.pikton.chattyguard.plugin.m2m.CallProcessor">
+    <bean id="callProcessor"      class="org.chattyguard.plugin.m2m.CallProcessor">
         <constructor-arg ref="cfg1"/>
     </bean>
 
-    <bean id="sensorMonitoring"   class="net.pikton.chattyguard.plugin.m2m.SensorMonitoring">
+    <bean id="sensorMonitoring"   class="org.chattyguard.plugin.m2m.SensorMonitoring">
         <constructor-arg ref="cfg2"/>
     </bean>
 
-    <bean id="cleaningFilesStrategy" class="net.pikton.chattyguard.plugin.m2m.CleaningFilesStrategy">
+    <bean id="cleaningFilesStrategy" class="org.chattyguard.plugin.m2m.CleaningFilesStrategy">
         <constructor-arg ref="cfg3"/>
     </bean>
 
-    <bean id="sensorPreprocessor" class="net.pikton.chattyguard.plugin.m2m.SensorPreprocessor"/>
+    <bean id="sensorPreprocessor" class="org.chattyguard.plugin.m2m.SensorPreprocessor"/>
 
-    <bean id="sensorRoutes"       class="net.pikton.chattyguard.plugin.m2m.SensorRouting"/>
-    <bean id="alarmRoutes"     	  class="net.pikton.chattyguard.plugin.m2m.AlarmRouting"/>
+    <bean id="sensorRoutes"       class="org.chattyguard.plugin.m2m.SensorRouting"/>
+    <bean id="alarmRoutes"     	  class="org.chattyguard.plugin.m2m.AlarmRouting"/>
 
-    <bean id="cleaningServiceRoutes" class="net.pikton.chattyguard.plugin.m2m.CleaningServiceRouting"/>
+    <bean id="cleaningServiceRoutes" class="org.chattyguard.plugin.m2m.CleaningServiceRouting"/>
 
 
 

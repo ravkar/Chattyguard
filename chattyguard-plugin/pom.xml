@@ -3,12 +3,12 @@
 	<modelVersion>4.0.0</modelVersion>
 	
 	<parent>
-		<groupId>net.pikton</groupId>
+		<groupId>org.chattyguard</groupId>
 		<artifactId>m2m-plugins</artifactId>
 		<version>1.0.1</version>
 	</parent>
 
-	<groupId>net.pikton</groupId>
+	<groupId>org.chattyguard</groupId>
 	<artifactId>chattyguard-plugin</artifactId>
 	<packaging>jar</packaging>
 	<version>1.0.0</version>
@@ -116,7 +116,7 @@
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>net.pikton.chattyguard.plugin.Mediation</mainClass>
+                    <mainClass>org.chattyguard.plugin.Mediation</mainClass>
                     <includePluginDependencies>false</includePluginDependencies>
                 </configuration>
             </plugin>
@@ -129,7 +129,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>net.pikton.chattyguard.plugin.Mediation</mainClass>
+                            <mainClass>org.chattyguard.plugin.Mediation</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -154,7 +154,7 @@
 							</artifactSet>
 							<transformers>
 								<transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-									<mainClass>net.pikton.chattyguard.plugin.Mediation</mainClass>
+									<mainClass>org.chattyguard.plugin.Mediation</mainClass>
 								</transformer>
 				                <transformer implementation="org.apache.maven.plugins.shade.resource.DontIncludeResourceTransformer">
 				                   <resources>	
@@ -198,7 +198,7 @@
 		          </descriptors>                    
 		          <archive>
 		            <manifest>
-		              <mainClass>net.pikton.chattyguard.plugin.Mediation</mainClass>
+		              <mainClass>org.chattyguard.plugin.Mediation</mainClass>
 		            </manifest>
 		          </archive>          
 		        </configuration>

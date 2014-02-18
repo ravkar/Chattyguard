@@ -2,11 +2,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <parent>
     <artifactId>m2m-plugins</artifactId>
-    <groupId>net.pikton</groupId>
+    <groupId>org.chattyguard</groupId>
     <version>1.0.1</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
-  <groupId>net.pikton</groupId>
+  <groupId>org.chattyguard</groupId>
   <artifactId>chattyguard-plugin</artifactId>
   <name>chattyguard-plugin</name>
   <version>1.0.0</version>
@@ -31,7 +31,7 @@
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>exec-maven-plugin</artifactId>
         <configuration>
-          <mainClass>net.pikton.chattyguard.plugin.Mediation</mainClass>
+          <mainClass>org.chattyguard.plugin.Mediation</mainClass>
           <includePluginDependencies>false</includePluginDependencies>
         </configuration>
       </plugin>
@@ -41,7 +41,7 @@
           <archive>
             <manifest>
               <addClasspath>true</addClasspath>
-              <mainClass>net.pikton.chattyguard.plugin.Mediation</mainClass>
+              <mainClass>org.chattyguard.plugin.Mediation</mainClass>
             </manifest>
           </archive>
         </configuration>
@@ -64,7 +64,7 @@
               </artifactSet>
               <transformers>
                 <transformer>
-                  <mainClass>net.pikton.chattyguard.plugin.Mediation</mainClass>
+                  <mainClass>org.chattyguard.plugin.Mediation</mainClass>
                 </transformer>
                 <transformer>
                   <resources>
@@ -115,7 +115,7 @@
           </descriptors>
           <archive>
             <manifest>
-              <mainClass>net.pikton.chattyguard.plugin.Mediation</mainClass>
+              <mainClass>org.chattyguard.plugin.Mediation</mainClass>
             </manifest>
           </archive>
         </configuration>

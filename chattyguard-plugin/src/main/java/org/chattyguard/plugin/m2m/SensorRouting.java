@@ -1,4 +1,4 @@
-package net.pikton.chattyguard.plugin.m2m;
+package org.chattyguard.plugin.m2m;
 
 import org.apache.camel.LoggingLevel;
 import org.apache.camel.builder.RouteBuilder;
@@ -32,14 +32,14 @@ public class SensorRouting extends RouteBuilder {
                  
         from("file:{{file.input.dir}}&sendEmptyMessageWhenIdle=true")
         	.routeId("sensorPreprocessInput")
-	      		.log(LoggingLevel.INFO, "net.pikton","Preprocess sensor input")
+	      		.log(LoggingLevel.INFO, "org.chattyguard","Preprocess sensor input")
 	        	.unmarshal(csv)
 	        	.beanRef("sensorPreprocessor", "parseSensorValue")
 	      	    .multicast().to("vm:sensorMonitoring", "vm:sensorCurrentStateInfo"); 
                 
 	    from("vm:sensorMonitoring")
       	    .routeId("sensorMonitoring")
-	      		.log(LoggingLevel.INFO, "net.pikton","Monitoring sensor input")
+	      		.log(LoggingLevel.INFO, "org.chattyguard","Monitoring sensor input")
 	      		.setHeader("sensorUpperThreshold",simple("${properties:monitor.sensorUpperThreshold}"))      		
 	      		.beanRef("sensorMonitoring", "init")	 
 	      		.beanRef("sensorMonitoring", "verifySensorValue")
@@ -48,7 +48,7 @@ public class SensorRouting extends RouteBuilder {
 	    
 	    from("vm:sensorCurrentStateInfo")
   	    	.routeId("sensorCurrentStateInfo")
-	      		.log(LoggingLevel.INFO, "net.pikton","Produce sensor current state info")
+	      		.log(LoggingLevel.INFO, "org.chattyguard","Produce sensor current state info")
 	      		.beanRef("callProcessor", "setCurrentStateHeaders")	 
 	        	.to("vm:voiceCreation");   	    
     }
