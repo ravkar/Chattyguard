@@ -1,4 +1,4 @@
-package net.pikton.chattyguard.plugin;
+package org.chattyguard.plugin;
 
 import org.apache.camel.spring.Main;
 import org.slf4j.Logger;

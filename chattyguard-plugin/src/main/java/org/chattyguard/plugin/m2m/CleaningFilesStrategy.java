@@ -1,6 +1,6 @@
-package net.pikton.chattyguard.plugin.m2m;
+package org.chattyguard.plugin.m2m;
 
-import net.pikton.chattyguard.plugin.Configuration;
+import org.chattyguard.plugin.Configuration;
 import org.apache.camel.component.file.GenericFile;
 import org.apache.camel.component.file.GenericFileFilter;
 import org.slf4j.Logger;

@@ -1,6 +1,6 @@
-package net.pikton.chattyguard.plugin.m2m;
+package org.chattyguard.plugin.m2m;
 
-import net.pikton.chattyguard.plugin.Configuration;
+import org.chattyguard.plugin.Configuration;
 import org.apache.camel.Body;
 import org.apache.camel.Exchange;
 import org.apache.camel.Header;
