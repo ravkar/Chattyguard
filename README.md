@@ -1,12 +1,12 @@
 Chattyguard
 ===========
 
-Chattyguard – Smart Thermometer with VoIP interface on Raspberry Pi
+Smart Thermometer with VoIP interface on Raspberry Pi
 
 Prerequisites to assemble functioning device:
 - Hardware: Raspberry Pi ARM board or similar
 - Sensors: Thermometer DS1820
-- Software stack: Linux Raspbian distro, Asterisk for VoIP interface, Java SE 1.7 embedded, sox,
+- Software stack: Linux Raspbian distro, Asterisk for VoIP interface, Java SE 1.7 embedded
 - Chattyguard middleware - this module (Apache Camel based integration module)
 
 
