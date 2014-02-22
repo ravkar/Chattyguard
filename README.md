@@ -3,6 +3,11 @@ Chattyguard
 
 Smart Thermometer with VoIP interface on Raspberry Pi
 
+Functionality:
+- reads & monitors the actual temperature 
+- receives the VoIP calls and informs about actual measured temperature 
+- triggers the VoIP call alarms in case of special conditions met: exceeding lower/upper bounds of measured temperature
+
 Prerequisites to assemble functioning device:
 - Hardware: Raspberry Pi ARM board or similar
 - Sensors: Thermometer DS1820
@@ -10,7 +15,4 @@ Prerequisites to assemble functioning device:
 - Chattyguard middleware - this module (Apache Camel based integration module)
 
 
-Functionality:
-- reads & monitors the actual temperature 
-- receives the VoIP calls and informs about actual measured temperature 
-- triggers the VoIP call alarms in case of special conditions met: exceeding lower/upper bounds of measured temperature
+
