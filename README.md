@@ -3,6 +3,8 @@ Chattyguard
 
 Smart Thermometer with VoIP interface on Raspberry Pi
 
+![Architecture](http://www.rafalwarno.pl/wp-content/uploads/2014/03/chattyguard-300x231.gif)
+
 Functionality:
 - reads & monitors the actual temperature 
 - receives the VoIP calls and informs about actual measured temperature 
