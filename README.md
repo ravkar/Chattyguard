@@ -1,6 +1,6 @@
 Chattyguard
 ===========
-![Architecture](http://www.rafalwarno.pl/wp-content/uploads/2014/03/chattyguard-300x231.gif)
+![Architecture](http://www.rafalwarno.pl/wp-content/uploads/2014/03/chattyguard-600x400.gif)
 
 Smart Thermometer with VoIP interface on Raspberry Pi
 
