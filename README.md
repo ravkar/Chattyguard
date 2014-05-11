@@ -2,7 +2,7 @@ Chattyguard
 ===========
 
 ###Smart Thermometer with VoIP interface on Raspberry Pi
-![Architecture](http://www.rafalwarno.pl/wp-content/uploads/2014/05/chattyguard_architecture.png)
+![Architecture](http://www.rafalwarno.pl/wp-content/uploads/2014/05/chattyguard_arch.png)
 
 ###Functionality:
 - reads & monitors the actual temperature 
