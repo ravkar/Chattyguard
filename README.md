@@ -2,7 +2,7 @@ Chattyguard
 ===========
 
 ###Smart Thermometer with VoIP interface on Raspberry Pi
-![Architecture](http://www.rafalwarno.pl/wp-content/uploads/2014/03/chattyguard-600x350.gif)
+![Architecture](http://www.rafalwarno.pl/wp-content/uploads/2014/05/chattyguard_architecture.png)
 
 ###Functionality:
 - reads & monitors the actual temperature 
@@ -15,4 +15,4 @@ Chattyguard
 - Software stack: Linux Raspbian distro, Asterisk for VoIP interface, Java SE 1.7 embedded
 - Chattyguard middleware - Apache Camel based integration module
 
-
+![MessageFlow](http://www.rafalwarno.pl/wp-content/uploads/2014/05/chattyguard_flow.png)
